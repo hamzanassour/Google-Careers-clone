@@ -5,11 +5,13 @@
         <a href="/" class="logo">{{ logo }}</a>
         <nav>
           <ul>
-            <li><a href="#">Teams</a></li>
-            <li><a href="#">Locations</a></li>
-            <li><a href="#">Benefits</a></li>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Students</a></li>
+            <li
+              v-for="item in menuItems"
+              :key="item.id"
+              data-test="main-nav-test-item"
+            >
+              <a href="#">{{ item.name }}</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -23,6 +25,13 @@ export default {
   data: function () {
     return {
       logo: "Google Careers",
+      menuItems: [
+        { id: 1, name: "Teams" },
+        { id: 2, name: "Locations" },
+        { id: 3, name: "Benefits" },
+        { id: 4, name: "Jobs" },
+        { id: 5, name: "Students" },
+      ],
     };
   },
 };
