@@ -51,5 +51,36 @@ describe("NavBar", () => {
       "Students",
     ]);
   });
+  describe("when user is logged out ", () => {
+    it("we shouls have login button ", () => {
+      const wrapper = mount(NavBar, {
+        data() {
+          return {
+            isLoggedIn: false,
+          };
+        },
+      });
+      const loginButton = wrapper.find("[data-test='login-button']");
+      const profileImage = wrapper.find("[data-test='profile-image']");
+      expect(loginButton.exists()).toBe(true);
+      expect(profileImage.exists()).toBe(false);
+    });
+  });
+  describe("when user is logged in ", () => {
+    it("user  shouls see profile image ", () => {
+      const wrapper = mount(NavBar, {
+        data() {
+          return {
+            isLoggedIn: true,
+          };
+        },
+      });
+      const loginButton = wrapper.find("[data-test='login-button']");
+      const profileImage = wrapper.find("[data-test='profile-image']");
+      expect(loginButton.exists()).toBe(false);
+      expect(profileImage.exists()).toBe(true);
+    });
+  });
 });
+
 // always test the behavior not implementation

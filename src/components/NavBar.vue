@@ -14,14 +14,25 @@
             </li>
           </ul>
         </nav>
+        <div class="log">
+          <ActionButton
+            v-if="!isLoggedIn"
+            data-test="login-button"
+            @click="login"
+          ></ActionButton>
+          <ProfileImage v-else data-test="profile-image"></ProfileImage>
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import ActionButton from "./ActionButton.vue";
+import ProfileImage from "./ProfileImage.vue";
 export default {
   name: "NavBar",
+  components: { ActionButton, ProfileImage },
   data: function () {
     return {
       logo: "Google Careers",
@@ -32,7 +43,13 @@ export default {
         { id: 4, name: "Jobs" },
         { id: 5, name: "Students" },
       ],
+      isLoggedIn: false,
     };
+  },
+  methods: {
+    login() {
+      this.isLoggedIn = true;
+    },
   },
 };
 </script>
@@ -74,6 +91,12 @@ ul {
   padding: 0;
   margin: 0;
   height: 100%;
+}
+.log {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: auto;
 }
 li {
   margin-left: 38px;
