@@ -18,6 +18,8 @@
           <ActionButton
             v-if="!isLoggedIn"
             data-test="login-button"
+            text="Sign in"
+            :is-primary="false"
             @click="login"
           ></ActionButton>
           <ProfileImage v-else data-test="profile-image"></ProfileImage>
