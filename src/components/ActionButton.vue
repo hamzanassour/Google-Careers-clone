@@ -4,8 +4,24 @@
 
 <script>
 export default {
+  // we can  mention if a props is optional or required  and we can also give a default value to props
   name: "ActionButton",
-  props: ["text", "isPrimary"],
+  //props: ["text", "type"], legacy method
+  props: {
+    text: {
+      type: String,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: false,
+      default: "secondary",
+      // we can use also validator ta validate our props value
+      // validator(value) {
+      //   return value == "primary";
+      // },
+    },
+  },
   // data() {
   //   return {
   //     primary: true,
@@ -14,8 +30,7 @@ export default {
   computed: {
     buttonClass() {
       return {
-        Primary: this.isPrimary,
-        secondary: !this.isPrimary,
+        [this.type]: true,
       };
     },
   },
