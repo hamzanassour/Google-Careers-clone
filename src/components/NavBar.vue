@@ -25,6 +25,7 @@
           <ProfileImage v-else data-test="profile-image"></ProfileImage>
         </div>
       </div>
+      <Subnav></Subnav>
     </div>
   </header>
 </template>
@@ -32,9 +33,10 @@
 <script>
 import ActionButton from "./ActionButton.vue";
 import ProfileImage from "./ProfileImage.vue";
+import Subnav from "./Subnav.vue";
 export default {
   name: "NavBar",
-  components: { ActionButton, ProfileImage },
+  components: { ActionButton, ProfileImage, Subnav },
   data: function () {
     return {
       logo: "Google Careers",
