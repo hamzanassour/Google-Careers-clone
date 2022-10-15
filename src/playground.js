@@ -18,10 +18,19 @@
 
 // // testing exemple
 
-export const evenOrOdd = (number) => {
-  if (number % 2 === 0) {
-    return "even";
-  } else {
-    return "odd";
-  }
-};
+// export const evenOrOdd = (number) => {
+//   if (number % 2 === 0) {
+//     return "even";
+//   } else {
+//     return "odd";
+//   }
+// };
+
+// dynamic Object property
+// const favoriteFood = "Rfissa";
+
+// const foods = {
+//   [favoriteFood]: true,
+// };
+
+// console.log(foods);
